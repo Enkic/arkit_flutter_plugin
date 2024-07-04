@@ -14,6 +14,7 @@ func createImageTrackingConfiguration(_ arguments: [String: Any]) -> ARImageTrac
         }
         if let trackingImages = arguments["trackingImages"] as? [[String: Any]] {
             debugPrint("get trackingImages");
+            debugPrint("trackingImages " + trackingImages);
             imageTrackingConfiguration.trackingImages = parseReferenceImagesSet(trackingImages)
         }
         if let maximumNumberOfTrackedImages = arguments["maximumNumberOfTrackedImages"] as? Int {
