@@ -2,7 +2,9 @@ import ARKit
 import Foundation
 
 func createImageTrackingConfiguration(_ arguments: [String: Any]) -> ARImageTrackingConfiguration? {
+    NSLog("createImageTrackingConfiguration");
     if ARImageTrackingConfiguration.isSupported {
+        NSLog("createImageTrackingConfiguration ARImageTrackingConfiguration supported");
         let imageTrackingConfiguration = ARImageTrackingConfiguration()
 
         if let trackingImagesGroupName = arguments["trackingImagesGroupName"] as? String,
@@ -11,6 +13,7 @@ func createImageTrackingConfiguration(_ arguments: [String: Any]) -> ARImageTrac
             imageTrackingConfiguration.trackingImages = referenceImages
         }
         if let trackingImages = arguments["trackingImages"] as? [[String: Any]] {
+            debugPrint("get trackingImages");
             imageTrackingConfiguration.trackingImages = parseReferenceImagesSet(trackingImages)
         }
         if let maximumNumberOfTrackedImages = arguments["maximumNumberOfTrackedImages"] as? Int {

@@ -7,6 +7,7 @@ func parseReferenceImagesSet(_ images: [[String: Any]]) -> Set<ARReferenceImage>
 }
 
 func parseReferenceImage(_ dict: [String: Any]) -> ARReferenceImage? {
+    debugPrint("parseReferenceImage");
     if let physicalWidth = dict["physicalWidth"] as? Double,
        let name = dict["name"] as? String,
        let image = getImageByName(name),
@@ -18,3 +19,4 @@ func parseReferenceImage(_ dict: [String: Any]) -> ARReferenceImage? {
     }
     return nil
 }
+
