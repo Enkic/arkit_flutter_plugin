@@ -1,14 +1,11 @@
 import Foundation
 
 func getImageByName(_ name: String) -> UIImage? {
-    debugPrint("getImageByName");
     let fileManager = FileManager.default
     if let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
         let imagePath = documentsDirectory.appendingPathComponent(name)
-        debugPrint("imagePath: " + imagePath.path)        
         // Vérifiez si l'image existe dans le répertoire Documents
         if fileManager.fileExists(atPath: imagePath.path) {
-            debugPrint("image created from document directory");
             return UIImage(contentsOfFile: imagePath.path)
         }
     }
